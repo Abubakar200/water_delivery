@@ -1,0 +1,53 @@
+:host {
+  display: block;
+}
+
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8effc 100%);
+  padding: 2rem;
+}
+
+.login-card {
+  width: min(100%, 420px);
+  border-radius: 1rem;
+  box-shadow: 0 1.25rem 2rem rgba(22, 39, 93, 0.11);
+}
+
+.login-card h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.p-field {
+  margin-bottom: 1.25rem;
+}
+
+.error {
+  color: #c62828;
+  font-size: 0.875rem;
+}
+
+.error-box,
+.success-box {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+}
+
+.error-box {
+  background: #ffe8e8;
+  color: #b71c1c;
+}
+
+.success-box {
+  background: #e8f6e8;
+  color: #1b5e20;
+}
+
+input.invalid,
+.p-dropdown .p-dropdown-label {
+  border-color: #c62828 !important;
+}

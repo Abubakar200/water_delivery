@@ -1,0 +1,64 @@
+<div class="login-page p-d-flex p-jc-center p-ai-center">
+  <p-card class="login-card">
+    <ng-container *ngIf="step === 'login'">
+      <ng-template pTemplate="title">
+        <h2>Login</h2>
+      </ng-template>
+
+      <form [formGroup]="loginForm" (ngSubmit)="submitLogin()" class="p-fluid">
+        <div class="p-field">
+          <label for="email">Email</label>
+          <input id="email" type="text" pInputText formControlName="email" [class.invalid]="emailControl?.invalid && emailControl?.touched" />
+          <small class="error" *ngIf="emailControl?.errors?.['required'] && emailControl?.touched">Email is required.</small>
+          <small class="error" *ngIf="emailControl?.errors?.['email'] && emailControl?.touched">Enter a valid email.</small>
+        </div>
+
+        <div class="p-field">
+          <label for="password">Password</label>
+          <p-password id="password" formControlName="password" [class.invalid]="passwordControl?.invalid && passwordControl?.touched"></p-password>
+          <small class="error" *ngIf="passwordControl?.errors?.['required'] && passwordControl?.touched">Password is required.</small>
+          <small class="error" *ngIf="passwordControl?.errors?.['minlength'] && passwordControl?.touched">Password must be at least 8 characters.</small>
+        </div>
+
+        <div class="p-field p-mt-4">
+          <p-button type="submit" label="Login" class="p-button-rounded p-button-primary" [disabled]="loading"></p-button>
+        </div>
+      </form>
+    </ng-container>
+
+    <ng-container *ngIf="step === 'selectOrg'">
+      <ng-template pTemplate="title">
+        <h2>Select Organisation</h2>
+      </ng-template>
+
+      <form [formGroup]="organisationForm" (ngSubmit)="submitOrganisation()" class="p-fluid">
+        <div class="p-field">
+          <label for="organisation">Organisation</label>
+          <p-select
+            id="organisation"
+            [options]="organisations"
+            optionLabel="name"
+            optionValue="id"
+            placeholder="Select organisation"
+            formControlName="organisationId"
+          ></p-select>
+          <small class="error" *ngIf="organisationControl?.errors?.['required'] && organisationControl?.touched">Organisation selection is required.</small>
+        </div>
+
+        <div class="p-field p-mt-4">
+          <p-button type="submit" label="Continue" class="p-button-rounded p-button-primary" [disabled]="loading"></p-button>
+        </div>
+      </form>
+    </ng-container>
+
+    <ng-container *ngIf="step === 'done'">
+      <ng-template pTemplate="title">
+        <h2>Logged in</h2>
+      </ng-template>
+      <p>Your login is complete. You can now continue to the dashboard.</p>
+    </ng-container>
+
+    <div *ngIf="error" class="error-box">{{ error }}</div>
+    <div *ngIf="success" class="success-box">{{ success }}</div>
+  </p-card>
+</div>
