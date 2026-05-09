@@ -2,12 +2,12 @@ import {
   Controller,
   Post,
   Get,
+  Patch,
   Body,
   HttpCode,
   HttpStatus,
   UseGuards,
   Req,
-  Patch,
 } from '@nestjs/common';
 import type { Request } from 'express';
 import { AuthService } from './auth.service';

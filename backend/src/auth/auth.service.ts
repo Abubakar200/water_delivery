@@ -25,6 +25,8 @@ import {
   RegisterDto,
   RefreshTokenDto,
   ChangePasswordDto,
+  CreateOrganisationDto,
+  UpdateOrganisationDto,
 } from './dto/auth.dto';
 
 @Injectable()

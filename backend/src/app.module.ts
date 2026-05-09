@@ -5,6 +5,8 @@ import { APP_PIPE } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 
 import { AuthModule } from './auth/auth.module';
+import { UsersModule } from './users/users.module';
+import { OrganisationsModule } from './organisations/organisations.module';
 
 import { User } from './auth/entities/user.entity';
 import { Role } from './auth/entities/role.entity';
@@ -33,6 +35,8 @@ import { OrganisationMember } from './auth/organisations/entities/organisation-m
     }),
 
     AuthModule,
+    UsersModule,
+    OrganisationsModule,
   ],
   providers: [
     {
